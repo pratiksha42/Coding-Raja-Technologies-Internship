@@ -1,0 +1,25 @@
+.background{
+    background-color: rgba(86, 158, 206, 0.756);
+}
+
+@media print{
+    body * {
+        visibility: hidden;
+    }
+    #resume-template, #resume-template * {
+        visibility: visible;
+    }
+    #resume-template{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+}
+
+#resume-template{
+    display: none;
+}

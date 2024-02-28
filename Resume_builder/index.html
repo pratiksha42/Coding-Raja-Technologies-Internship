@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <title>Resume Builder</title>
+</head>
+
+<body>
+    <!-- Personal Information  -->
+    <div class="container" id="resume-form">
+        <h1 class="text-center my-2">Resume Builder</h1>
+        <p class="text-center">Build your resume</p>
+
+
+        <div class="row mt-3">
+            <h2>Personal Information</h2>
+
+
+            <div class="col-md-6">
+                <div class="form-group mt-2">
+                    <label for="FnameField">First Name</label>
+                    <input type="text" id="FnameField" placeholder="Enter First name" class="form-control">
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="contactField">Contact No.</label>
+                    <input type="text" id="contactField" placeholder="Enter your contact number" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group mt-2">
+                    <label for="LnameField">Last Name</label>
+                    <input type="text" id="LnameField" placeholder="Enter Last name" class="form-control">
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="emailField">Email Id</label>
+                    <input type="email" id="emailField" placeholder="Enter your email Id" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Links -->
+        <div class="row  mt-3">
+            <p><strong>Important Links</strong></p>
+            <div class="col-md-6">
+                <div class="form-group mt-2">
+                    <label for="LinkedInField">LinkedIn</label>
+                    <input type="url" id="LinkedInField" placeholder="Enter your LinkedIn Link" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group mt-2">
+                    <label for="gitHubField">GitHub</label>
+                    <input type="url" id="gitHubField" placeholder="Enter your GitHub Link" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="border: 2px solid black;">
+
+
+    <!-- Work Experience -->
+    <div class="container">
+        <div class="col-md-6 mt-4">
+            <h2>Work Experience</h2>
+            <div class="form-group mt-3" id="we">
+                <textarea placeholder="Enter here" class="form-control WeField"></textarea>
+                <div class="container text-center mt-3" id="WeAddBtn"> <!-- work experience add button -->
+                    <button onclick="addNewWeField()" class="btn btn-primary btn-sm">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="border: 2px solid black;">
+
+
+    <!-- Academic qualification -->
+    <div class="container mt-4">
+        <div class="col-md-6">
+            <h2>Education</h2>
+            <div class="form-group mt-3" id="aq">
+                <textarea placeholder="Enter here" class="form-control AqField"></textarea>
+                <div class="container text-center mt-3" id="AqAddBtn"> <!-- Academic qualification add button -->
+                    <button onclick="addNewAqField()" class="btn btn-primary btn-sm">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="border: 2px solid black;">
+
+
+    <!-- Extra Activities -->
+
+    <!-- Projects -->
+    <div class="container mt-4">
+        <div class="col-md-6">
+            <h2>Projects</h2>
+            <div class="form-group mt-3" id="pr">
+                <textarea placeholder="Enter here" class="form-control PrField"></textarea>
+                <div class="container text-center mt-3" id="PrAddBtn"> <!-- Projects add button -->
+                    <button onclick="addProjectField()" class="btn btn-primary btn-sm">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="border: 2px solid black;">
+
+
+    <!-- Internship -->
+    <div class="container mt-4">
+        <div class="col-md-6">
+            <h2>Intenships</h2>
+            <div class="form-group mt-3" id="is">
+                <textarea type="text" placeholder="Enter here" class="form-control IsField" rows="2"></textarea><br>
+                <div class="container text-center mt-3" id="InternAddBtn"> <!--Internship add button -->
+                    <button onclick="addInternshipField()" class="btn btn-primary btn-sm">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+    <!-- certificate -->
+    <div class="container mt-3">
+        <div class="col-md-6">
+            <div class="form-group" id="cf">
+                <h2>Certifications</h2>
+                <textarea type="text" placeholder="Enter here" class="form-control CtField" rows="2"></textarea><br>
+                <div class="container text-center mt-3" id="CertiAddBtn"> <!--certifiacte add button -->
+                    <button onclick="addCertificateField()" class="btn btn-primary btn-sm">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+    <!-- skills -->
+    <div class="container mt-3">
+        <div class="col-md-6">
+            <div class="form-group" id="sk">
+                <h4>Skills</h4>
+                <textarea type="text" placeholder="Enter here" class="form-control SkField" rows="1"></textarea><br>
+            </div>
+            <div class="container text-center mt-3" id="SkAddBtn"> <!--Skills add button -->
+                <button onclick="addSkillField()" class="btn btn-primary btn-sm">Add</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- </div> -->
+
+    <div class="container text-center mt-5">
+        <button onclick="createResume()" class="btn btn-primary btn-lg" id="ProfInfoPg">Create Resume</button>
+    </div>
+    <!-- </div> -->
+    <!-- </div> -->
+
+
+
+
+    <!------ Code for Resume Template ------>
+        <div class="container mt-5" id="resume-template" style="font-family: 'Times New Roman', Times, serif;">
+
+            <!-- personal Information      -->
+            <div class="row">
+                <div class="container text-center">
+                    <h1 id="nameT" style="font-weight: 800;"><b>Name</b></h1>
+                    <!-- <div class="row">
+                    <span id="contactT" class="contact-item">Contact <a id="EmailT" href="">Email Id</a> <a itemid="linkT" id="linkedT"
+                            href="">LinkedIn</a> <a id="gitT" href="">GitHub</a></span>
+                </div> -->
+                    <div class="row">
+                        <span class="contact-item">
+                            <a id="contactT">Contact</a>
+                            <a id="EmailT" href="">Email ID</a> |
+                            <a id="linkedT" href="">LinkedIn</a> |
+                            <a id="gitT" href="">GitHub</a>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <hr style="border: 2px solid black;">
+
+
+            <!-- Work experience -->
+
+            <div class="card mt-2">
+                <div class="card-header background">
+                    <h4>Work Experience</h4>
+                </div>
+                <div class="card-body">
+                    <ul id="WeT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Academic Qualification -->
+            <div class="card">
+                <div class="card-header background">
+                    <h4>Academic Qualification</h4>
+                </div>
+                <div class="card-body">
+                    <ul id="AcT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Extra Academic Qualification -->
+
+
+            <div class="card">
+                <div class="card-header background">
+                    <h4>Projects</h4>
+                </div>
+                <div class="card-body">
+                    <ul id="projectT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header background">
+                    <h4>Internships</h4>
+                </div>
+                <div class="card-body">
+                    <ul id="internshipT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div class="card">
+                <div class="card-header background">
+                    <h4>Certifications</h4>
+                </div>
+                <div class="card-body">
+                    <ul id="certificateT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <div class="card">
+                <div class="card-header background">
+                    <h4>Skills</h4>
+                </div>
+                <div class="card-body">
+                    <ul id="skillT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="container mt-4 text-center">
+                <button onclick="printResume()" class="btn background" id="printResume">Print</button>
+            </div>
+        </div>
+
+   
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
